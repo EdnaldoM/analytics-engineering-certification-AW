@@ -1,0 +1,206 @@
+version: 2
+
+sources:
+  - name: sap_adw
+    description: Necessary tables from SAP AdventureWorks to answer business questions.
+    schema: sap_adw
+
+    tables:
+      - name: address
+        columns:
+          - name: addressid
+            tests: 
+              - unique
+              - not_null
+          - name: city
+            tests:
+              - not_null
+          - name: stateprovinceid
+            tests:
+              - not_null
+              - relationships:
+                  field: stateprovinceid
+                  to: ref('stateprovince')
+
+
+      - name: salesorderdetail
+        columns:
+          - name: salesorderid
+            tests:
+              - not_null
+              - relationships:
+                  field: salesorderid
+                  to: ref('salesorderheader')
+          - name: orderqty
+            tests:
+              - not_null
+          - name: productid
+            tests:
+              - not_null
+              - relationships:
+                  field: productid
+                  to: ref('product')
+          - name: salesorderdetailid
+            tests:
+              - not_null
+              - unique
+          - name: unitprice
+            tests:
+              - not_null
+          - name: unitpricediscount
+            tests:
+              - not_null
+
+
+      - name: creditcard
+        columns:
+          - name: creditcardid
+            tests:
+              - unique
+              - not_null
+          - name: cardtype
+            tests:
+              - not_null            
+
+
+      - name: salesorderheader
+        columns:
+          - name: salesorderid
+            tests:
+              - unique
+              - not_null
+          - name: customerid
+            tests:
+              - not_null
+              - relationships:
+                  field: customerid
+                  to: ref('customer')
+          - name: territoryid
+            tests:
+              - not_null
+          - name: shiptoaddressid
+            tests:
+            - not_null
+            - relationships:
+                field: addressid
+                to: ref('address')
+          - name: creditcardid
+            tests:
+              - relationships:
+                  field: creditcardid
+                  to: ref('creditcard')                   
+      
+      
+      - name: salesreason
+        columns:
+          - name: salesreasonid
+            tests:
+              - unique
+              - not_null
+          - name: name
+            tests:
+              - not_null
+      
+      
+      - name: salesorderheadersalesreason
+        columns:
+          - name: salesorderid
+            tests:
+              - not_null
+              - relationships:
+                  field: salesorderid
+                  to: ref('salesorderheader')
+          - name: salesreasonid
+            tests:
+              - not_null
+              - relationships:
+                  field: salesreasonid
+                  to: ref('salesreason')
+      
+      
+      - name: person
+        columns:
+          - name: businessentityid
+            tests:
+              - not_null
+              - unique
+          - name: firstname
+            tests:
+              - not_null
+          - name: lastname
+            tests:
+            - not_null              
+
+
+      - name: stateprovince
+        columns:
+          - name: stateprovinceid
+            tests:
+              - unique
+              - not_null
+          - name: territoryid
+            tests:
+              - not_null
+              - relationships:
+                  field: territoryid
+                  to: ref('salesterritory')
+          - name: countryregioncode
+            tests:
+              - not_null
+              - relationships:
+                  field: countryregioncode
+                  to: ref('countryregion')
+
+
+      - name: countryregion
+        columns:
+          - name: countryregioncode
+            tests:
+              - not_null
+              - unique
+          - name: name
+            tests:
+              - not_null
+              - unique                  
+
+
+      - name: customer
+        columns:
+          - name: customerid
+            tests:
+              - not_null
+              - unique
+          - name: personid
+            tests:
+              - unique
+              - relationships:
+                  field: businessentityid
+                  to: ref('person')
+
+      - name: product
+        columns:
+          - name: productid
+            tests:
+              - not_null
+              - unique
+          - name: name
+            tests:
+              - not_null
+              - unique
+
+
+      - name: salesterritory
+        columns:
+          - name: territoryid
+            tests:
+              - not_null
+              - unique
+          - name: name
+            tests:
+              - not_null
+          - name: countryregioncode
+            tests:
+              - not_null
+              - relationships:
+                  field: countryregioncode
+                  to: ref('countryregion')              
