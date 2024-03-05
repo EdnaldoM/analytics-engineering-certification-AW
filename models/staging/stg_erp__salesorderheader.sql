@@ -24,7 +24,7 @@ with
             , cast(salespersonid as int) as salesperson_id
             , cast(territoryid as int) as territory_id
             , cast(shiptoaddressid as int) as shiptoaddress_id
-            , cast(creditcardid as int) as creditcart_id
+            , cast(creditcardid as int) as creditcard_id
             , cast(subtotal as int) as subtotal
             , cast(taxamt as int) as taxes
             , cast(freight as int) as freight
