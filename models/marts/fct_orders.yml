@@ -1,0 +1,60 @@
+version: 2
+
+models:
+
+  - name: fct_orders
+    description: Detalhamento dos pedidos dos clientes
+    columns:
+      - name: salesorder_id
+        description: PK que identifica cada pedido recebido
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: FK com o id do cliente
+        tests:
+          - not_null
+      - name: shiptoaddress_id
+        description: PK com o id do endereço do cliente
+        tests:
+          - not_null
+      - name: order_date
+        description: Data da venda
+        tests:
+          - not_null
+      - name: order_month
+        description: Mês da venda
+        tests:
+          - not_null
+      - name: order_year
+        description: Ano da venda
+        tests:
+          - not_null
+      - name: subtotal
+        description: Venda com desconto por pedido
+        tests:
+          - not_null
+      - name: totaldue
+        description: Valor total bruto do pedido, incluindo impostos e frete
+        tests:
+          - not_null
+      - name: order_status
+        description: Status da venda
+        tests:
+          - not_null
+      - name: qty_products
+        description: Quantidade de um produto específico no pedido
+        tests:
+          - not_null
+      - name: qty_items
+        description: Quantidade total de produtos em um pedido
+        tests:
+          - not_null
+      - name: gross_subtotal_by_order
+        description: Venda sem desconto por pedido
+        tests:
+          - not_null
+      - name: card_type
+        description: Tipo de cartão de crédito
+        tests:
+          - not_null

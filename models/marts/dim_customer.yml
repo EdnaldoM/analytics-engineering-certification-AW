@@ -1,0 +1,16 @@
+version: 2
+
+models:
+
+  - name: dim_customers
+    description: Tabela com os nomes dos clientes
+    columns:
+      - name: customer_id
+        description: PK que identifica cada cliente
+        tests:
+          - not_null
+          - unique 
+      - name: name_customer
+        description: Nomes dos clientes
+        tests:
+          - not_null

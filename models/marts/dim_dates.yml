@@ -1,0 +1,32 @@
+version: 2
+
+models:
+
+  - name: dim_dates
+    description: Calendário de maio/2011 até 12/2014, pois este é o range temporal dos dados da AW
+    columns:
+      - name: full_date
+        description: Data completa no formato aaaa/mm/dd
+        tests:
+          - unique
+          - not_null
+      - name: year
+        description: Ano
+        tests:
+          - not_null
+      - name: day
+        description: Dia
+        tests:
+          - not_null
+      - name: month
+        description: Mês
+        tests:
+          - not_null
+      - name: month_name
+        description: Nome
+        tests:
+          - not_null
+      - name: month_year
+        description: Mês e ano, eliminando o grão diário
+        tests:
+          - not_null

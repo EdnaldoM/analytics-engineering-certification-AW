@@ -1,0 +1,28 @@
+version: 2
+
+models:
+
+  - name: dim_address
+    description: Informações sobre endereço, contendo cidade, estado, país e território.
+    columns:
+      - name: shiptoaddress_id
+        description: PK que identifica cada linha de endereço
+        tests:
+          - not_null
+          - unique
+      - name: city
+        description: Cidades
+        tests:
+          - not_null
+      - name: name_stateprovince
+        description: Estados
+        tests:
+          - not_null
+      - name: name_country
+        description: Países
+        tests:
+          - not_null
+      - name: name_territory
+        description: Territórios
+        tests:
+          - not_null

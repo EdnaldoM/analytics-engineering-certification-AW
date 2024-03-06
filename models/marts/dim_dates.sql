@@ -3,7 +3,7 @@ with
         {{ dbt_utils.date_spine(
             datepart="day"
             , start_date="cast('1970-01-01' as date)"
-         , end_date="current_date + (365*10)"
+         , end_date="cast('2014-12-31' as date)"
         )}}
     )
 
