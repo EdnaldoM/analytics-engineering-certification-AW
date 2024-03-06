@@ -1,0 +1,23 @@
+version: 2
+
+models:
+
+  - name: dim_salesreason
+    description: Tabela com os motivos de venda.
+    columns:
+      - name: salesorder_id
+        description: FK para acessar as ordens
+        tests:
+          - not_null
+      - name: salesreason_id
+        description: PK para identificar o motivo da venda
+        tests:
+          - not_null
+      - name: name_reason
+        description: Descrição do motivo da compra
+        tests:
+          - not_null
+      - name: reason_type
+        description: Classificação do motivo da compra
+        tests:
+          - not_null

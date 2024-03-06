@@ -1,0 +1,36 @@
+version: 2
+
+models:
+
+  - name: dim_products
+    description: Informações sobre os produtos vendidos pela AdventureWorks
+    columns:
+      - name: orderdetail_id
+        description: PK que representa os detalhes de cada produto em determinado pedido
+        tests:
+          - unique
+          - not_null
+      - name: salesorder_id
+        description: PK que representa os detalhes de cada produto em determinado pedido
+        tests:
+          - not_null
+      - name: product_id
+        description: FK que traz as informações dos produtos
+        tests:
+          - not_null
+      - name: name_product
+        description: Nome dos produtos
+        tests:
+          - not_null
+      - name: order_qty
+        description: Quantidade do produto específico em um determinado pedido
+        tests:
+          - not_null
+      - name: unitprice
+        description: Preço unitário do produto
+        tests:
+          - not_null
+      - name: unitprice_discount
+        description: Desconto percentual (quando houver) no preço do produto
+        tests:
+          - not_null  
