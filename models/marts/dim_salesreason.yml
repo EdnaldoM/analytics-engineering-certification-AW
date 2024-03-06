@@ -13,7 +13,7 @@ models:
         description: PK para identificar o motivo da venda
         tests:
           - not_null
-      - name: name_reason
+      - name: reason_name
         description: Descrição do motivo da compra
         tests:
           - not_null
