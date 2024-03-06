@@ -5,7 +5,7 @@ models:
   - name: dim_products
     description: Informações sobre os produtos vendidos pela AdventureWorks
     columns:
-      - name: orderdetail_id
+      - name: salesorderdetail_id
         description: PK que representa os detalhes de cada produto em determinado pedido
         tests:
           - unique
