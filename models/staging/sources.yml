@@ -3,6 +3,7 @@ version: 2
 sources:
   - name: sap_adw
     description: Necessary tables from SAP AdventureWorks to answer business questions.
+    database: adventure-works-dw-415210
     schema: sap_adw
 
     tables:
